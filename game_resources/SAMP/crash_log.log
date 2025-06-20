@@ -1,0 +1,46 @@
+ 
+SA:MP version: 2.0
+Build time: lebedev :)
+Last processed auto and entity: 517 10994
+Last processed skin and entity: 142 517
+ID: 5681
+Last rendered object: 0
+SIGSEGV | Fault address: 0x0
+libGTASA base address: 0xBF888000
+libsamp base address: 0xBEF80000
+libc base address: 0xE9474000
+register states:
+r0: 0xBCE70690, r1: 0xBCD4A780, r2: 0xBF62B080, r3: 0x0
+r4: 0xbce70690, r5: 0xba459c88, r6: 0xc01702a0, r7: 0xba2ca0e0
+r8: 0xc01702a4, r9: 0xc0154420, sl: 0xbfe55760, fp: 0xc0170620
+ip: 0xbfe55b50, sp: 0xba2ca0e0, lr: 0xbfc4950d, pc: 0x0
+backtrace:
+1: libGTASA.so + 0x40778000
+2: libGTASA.so + 0x3C150D
+1: libsamp.so + 0x41080000
+2: libsamp.so + 0xCC950D
+1: libc.so + 0x16B8C000
+2: libc.so + 0xD67D550D
+ 
+SA:MP version: 2.0
+Build time: lebedev :)
+Last processed auto and entity: 576 10372
+Last processed skin and entity: 255 576
+ID: 7676
+Last rendered object: 0
+SIGSEGV | Fault address: 0x0
+libGTASA base address: 0xBF703000
+libsamp base address: 0xBF04A000
+libc base address: 0xE9474000
+register states:
+r0: 0xB7AB4410, r1: 0xB8597980, r2: 0xBE159EE0, r3: 0x0
+r4: 0xb7ab4410, r5: 0xb78c9708, r6: 0xbffeb2a0, r7: 0xb81ea0e0
+r8: 0xbffeb2a4, r9: 0xbffcf420, sl: 0xbfcd0760, fp: 0xbffeb620
+ip: 0xbfcd0b50, sp: 0xb81ea0e0, lr: 0xbfac450d, pc: 0x0
+backtrace:
+1: libGTASA.so + 0x408FD000
+2: libGTASA.so + 0x3C150D
+1: libsamp.so + 0x40FB6000
+2: libsamp.so + 0xA7A50D
+1: libc.so + 0x16B8C000
+2: libc.so + 0xD665050D

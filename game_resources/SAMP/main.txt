@@ -1,0 +1,125 @@
+DEFINE OBJECTS 1
+DEFINE OBJECT SANNY BUILDER 3.04      
+
+DEFINE MISSIONS 0
+
+DEFINE EXTERNAL_SCRIPTS 0 // Use -1 in order not to compile AAA script
+
+DEFINE UNKNOWN_EMPTY_SEGMENT 0
+
+DEFINE UNKNOWN_THREADS_MEMORY 0
+
+//-------------MAIN---------------
+03A4: name_thread 'MAIN' 
+016A: fade 0 time 0 
+042C: set_total_missions_to 0 
+030D: set_max_progress 0 
+01F0: set_max_wanted_level_to 6 
+0111: set_wasted_busted_check 0 
+00C0: set_current_time_hours_to 10 minutes_to 0 
+04E4: unknown_refresh_game_renderer_at 0.0 0.0 
+03CB: set_rendering_origin_at 0.0 0.0 20.0
+062A: change_float_stat 21 to 0.0 
+0629: change_integer_stat 181 to 4 
+0629: change_integer_stat 68 to 0 
+0053: $PLAYER_CHAR = create_player #NULL at 7.0 20.0 6.2 // -14.7 -103.7 110.0
+07AF: $PLAYER_GROUP = player $PLAYER_CHAR group 
+01F5: $PLAYER_ACTOR = get_player_actor $PLAYER_CHAR 
+0373: set_camera_directly_behind_player 
+0173: set_actor $PLAYER_ACTOR Z_angle_to 0.0 
+01B6: set_weather 15 
+087B: set_player $PLAYER_CHAR clothes_texture "tshirtbobored" model "TSHIRT" body_part 0 
+087B: set_player $PLAYER_CHAR clothes_texture "worktrgrey" model "worktr" body_part 2 
+087B: set_player $PLAYER_CHAR clothes_texture "SNEAKERBINCBLK" model "SNEAKER" body_part 3 
+087B: set_player $PLAYER_CHAR clothes_texture "PLAYER_FACE" model "HEAD" body_part 1 
+070D: rebuild_player $PLAYER_CHAR 
+04BB: select_interior 0 
+01B4: set_player $PLAYER_CHAR can_move 1 
+016C: restart_if_wasted_at -14.7 -103.7 110.0 angle 0.0 town_number 0 
+016A: fade 1 time 1000 
+0001: wait 100 ms 
+03E6: remove_text_box 
+0002: jump @MAIN_337 
+
+0A60: add_widget_flag 8 flag 128 
+
+
+:MAIN_138
+0001: wait 20 ms 
+00D6: if or 
+00E1:   player 0 pressed_key 4 
+0A52:   is_widget_released 8 
+004D: jump_if_false @MAIN_138 
+
+023C: load_special_actor 'CASHIE' as 1 // models 290-299 
+038B: load_requested_models 
+
+:MAIN_311
+00D6: if 
+823D:   not special_actor 1 loaded 
+004D: jump_if_false @MAIN_337 
+0001: wait 0 ms 
+0002: jump @MAIN_311 
+
+:MAIN_337
+0001: wait 0 ms 
+//0247: load_model #BAT 
+//0247: load_model #COLT45 
+//0247: load_model #CHROMEGUN 
+//0247: load_model #TEC9 
+//0247: load_model #ROCKETLA 
+0247: load_model #HYDRA 
+0247: load_model #NRG500 
+0247: load_model #INFERNUS 
+0001: wait 0 ms 
+
+:MAIN_390
+0001: wait 0 ms 
+//00D6: if and
+//0248:   model #BAT available 
+//0248:   model #COLT45 available 
+//0248:   model #CHROMEGUN available 
+//0248:   model #TEC9 available 
+//004D: jump_if_false @MAIN_390 
+00D6: if and
+//0248:   model #ROCKETLA available 
+0248:   model #HYDRA available 
+0248:   model #NRG500 available 
+0248:   model #INFERNUS available 
+004D: jump_if_false @MAIN_390 
+00A5: $4 = create_car #HYDRA at 19.71 20.7 6.2
+00A5: $5 = create_car #NRG500 at 0.0 20.7 6.2
+00A5: $6 = create_car #INFERNUS at 4.0 4.0 6.2
+0001: wait 1000 ms 
+0002: jump @MAIN_626 
+
+:MAIN_538
+0001: wait 10 ms 
+00D6: if or 
+00E1:   player 0 pressed_key 4 
+0A52:   is_widget_released 8 
+004D: jump_if_false @MAIN_538 
+02A3: enable_widescreen 1 
+0001: wait 5000 ms 
+02A3: enable_widescreen 0 
+
+:MAIN_638
+0001: wait 10 ms 
+00D6: if or 
+00E1:   player 0 pressed_key 4 
+0A52:   is_widget_released 8 
+004D: jump_if_false @MAIN_638 
+02A3: enable_widescreen 1 
+01B4: set_player $PLAYER_CHAR can_move 0 
+0337: set_actor $PLAYER_ACTOR visibility 0 
+09C7: change_player $PLAYER_CHAR model_to #SPECIAL01 
+0001: wait 5000 ms 
+02A3: enable_widescreen 0 
+0337: set_actor $PLAYER_ACTOR visibility 1 
+01B4: set_player $PLAYER_CHAR can_move 1 
+09C7: change_player $PLAYER_CHAR model_to #NULL 
+0002: jump @MAIN_538 
+
+:MAIN_626
+0001: wait 2500 ms 
+0002: jump @MAIN_626 
